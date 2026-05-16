@@ -174,7 +174,7 @@ def get_market_data(symbol):
 # ======================================
 
 
-def def ema(prices, period):
+def ema(prices, period):
 
     if len(prices) < period:
         return 0
