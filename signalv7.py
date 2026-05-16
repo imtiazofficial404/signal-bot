@@ -144,12 +144,20 @@ def get_market_data(symbol):
 
         data = response.json()
 
+        # FIX
+        if not isinstance(data, list):
+            print(f"Binance Error: {data}")
+            return [], [], [], []
+
         closes = []
         highs = []
         lows = []
         opens = []
 
         for candle in data:
+
+            if len(candle) < 5:
+                continue
 
             opens.append(float(candle[1]))
             highs.append(float(candle[2]))
@@ -162,13 +170,11 @@ def get_market_data(symbol):
 
         print(f"Market Data Error: {e}")
         return [], [], [], []
-
-# ======================================
-# EMA
+# E
 # ======================================
 
 
-def ema(prices, period):
+def def ema(prices, period):
 
     if len(prices) < period:
         return 0
