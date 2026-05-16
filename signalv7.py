@@ -574,13 +574,13 @@ def analyze_pair(pair):
     if ema_fast > ema_slow:
         buy_conditions += 1
 
-    if rsi_value < 45:
+    if rsi_value < 55:
         buy_conditions += 1
 
     if macd_value > 0:
         buy_conditions += 1
 
-    if stochastic_value < 55:
+    if stochastic_value < 70:
         buy_conditions += 1
 
     if momentum_value > 0:
@@ -591,13 +591,13 @@ def analyze_pair(pair):
     if ema_fast < ema_slow:
         sell_conditions += 1
 
-    if rsi_value > 55:
+    if rsi_value > 45:
         sell_conditions += 1
 
     if macd_value < 0:
         sell_conditions += 1
 
-    if stochastic_value > 45:
+    if stochastic_value > 30:
         sell_conditions += 1
 
     if momentum_value < 0:
