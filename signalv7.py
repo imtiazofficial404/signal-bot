@@ -613,7 +613,7 @@ def analyze_pair(pair):
 
     # SIGNAL
 
-    if buy_conditions >= 3:
+    if buy_conditions >= 2:
 
         signal = "BUY"
 
@@ -622,7 +622,7 @@ def analyze_pair(pair):
             buy_conditions * 18
         )
 
-    elif sell_conditions >= 3:
+    elif sell_conditions >= 2:
 
         signal = "SELL"
 
