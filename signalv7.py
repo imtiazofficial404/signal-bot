@@ -134,18 +134,16 @@ def get_market_data(symbol):
     try:
 
         url = (
-            "https://api.binance.com/api/v3/klines"
-            f"?symbol={symbol}"
-            f"&interval={TIMEFRAME}"
-            f"&limit={LIMIT}"
+    "https://api.bybit.com/v5/market/kline"
+    f"?category=linear&symbol={symbol}"
+    f"&interval=1&limit={LIMIT}"
         )
-
         response = requests.get(url, timeout=20)
 
         data = response.json()
 
         # FIX
-        if not isinstance(data, list):
+        if "result" not in data:
             print(f"Binance Error: {data}")
             return [], [], [], []
 
@@ -154,7 +152,7 @@ def get_market_data(symbol):
         lows = []
         opens = []
 
-        for candle in data:
+        for candle in data["result"]["list"]:
 
             if len(candle) < 5:
                 continue
@@ -686,16 +684,16 @@ def check_signal_result(
         result = "LOSS"
 
         if (
-            signal == "BUY"
-            and close_price > entry_price
-        ):
-            result = "WIN"
+    signal == "BUY"
+    and close_price > entry_price
+):
+    result = "WIN"
 
-        elif (
-            signal == "SELL"
-            and close_price < entry_price
-        ):
-            result = "WIN"
+elif (
+    signal == "SELL"
+    and close_price < entry_price
+):
+    result = "WIN"
 
         cursor = conn.cursor()
 
