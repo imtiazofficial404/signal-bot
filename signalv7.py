@@ -669,9 +669,9 @@ def check_signal_result(
         time.sleep(wait_seconds + 2)
 
         url = (
-            "https://api3.binance.com/api/v3/klines"
-            f"?symbol={pair}"
-            "&interval=1m&limit=1"
+            "https://api.bybit.com/v5/market/kline"
+             f"?category=linear&symbol={pair}
+             "&interval=1&limit=1"
         )
 
         response = requests.get(
@@ -681,7 +681,7 @@ def check_signal_result(
 
         data = response.json()
 
-        close_price = float(data[0][4])
+        close_price = float(data["result"]["list"][0][4])
 
         result = "LOSS"
 
