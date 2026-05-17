@@ -670,8 +670,8 @@ def check_signal_result(
 
         url = (
             "https://api.bybit.com/v5/market/kline"
-             f"?category=linear&symbol={pair}
-             "&interval=1&limit=1"
+             f"?category=linear&symbol={pair}"
+"&interval=1&limit=1"
         )
 
         response = requests.get(
