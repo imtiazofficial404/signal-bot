@@ -770,7 +770,7 @@ async def send_signal(data, signal_id):
 
     amount = martingale_amount()
     if data['confidence'] < 54:
-    return
+        return
 
     entry_time = (
         datetime.now()
