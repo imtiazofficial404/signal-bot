@@ -669,7 +669,7 @@ def check_signal_result(
         time.sleep(wait_seconds + 2)
 
         url = (
-            "https://api1.binance.com/api/v3/klines"
+            "https://api3.binance.com/api/v3/klines"
             f"?symbol={pair}"
             "&interval=1m&limit=1"
         )
